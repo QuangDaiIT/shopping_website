@@ -1,6 +1,6 @@
 import React from "react";
 import { Col } from 'antd';
-import Search from "antd/es/transfer/search";
+// import Search from "antd/es/transfer/search";
 import { WrapperHeader, WrapperTextHeader } from "./style";
 import { WrapperHeaderAccount } from "./style";
 import { WrapperTextHeaderSmall } from "./style";
@@ -9,6 +9,7 @@ import {
     CaretDownOutlined,
     ShoppingCartOutlined
 } from '@ant-design/icons';
+import ButtonInputSearch from "../ButtonInputSearch/ButtonInputSearch";
 //   import { Space } from 'antd';
 // import Search from "antd/es/transfer/search";
 const HeaderComponent = () => {
@@ -21,15 +22,22 @@ const HeaderComponent = () => {
                     </WrapperTextHeader>
                 </Col>
                 <Col span={12}>
-                    <Search
+                    {/* <Search
                         placeholder="input search text"
                         allowClear
                         enterButton="Search"
                         size="large"
+
                     // onSearch={onSearch}
+                    /> */}
+                    <ButtonInputSearch
+                        size="large"
+                        placeholder="input search text"
+                        // variant="borderless"
+                        textButton="Tìm kiếm"
                     />
                 </Col>
-                <Col span={6} style={{ display: "flex", gap: "20px" }}>
+                <Col span={6} style={{ display: "flex", gap: "20px", alignItems: "center" }}>
                     <WrapperHeaderAccount>
                         <UserOutlined style={{ fontSize: "30px" }} />
                         <div>
