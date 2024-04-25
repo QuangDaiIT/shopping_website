@@ -1,3 +1,11 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+/* @import'@ant-design\cssinjs\dist\umd\cssinjs.min.js'; */
+@import '~antd/dist/reset.css';
+/* @import "" */
+/* loi cai nay thi doi sang reset.css */
+/* @import '~antd/dist/antd.min.css'; */
+
 body {
   margin: 0;
   box-sizing: border-box;

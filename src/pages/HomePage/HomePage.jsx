@@ -1,20 +1,30 @@
 import React from "react";
 import TypeProduct from "../../components/TypeProduct/TypeProduct";
 import { WrapperTypeProduct } from "./style";
+import SliderComponent from "../../components/SliderComponent/SliderComponent";
+import shopee1 from "../../assets/images/shopee1.jpg";
+import shopee2 from "../../assets/images/shopee2.jpg";
+import shopee3 from "../../assets/images/shopee3.jpg";
+import shopee4 from "../../assets/images/shopee4.jpg";
 
 const HomePage = () => {
     const arr = ['TV', 'Tu lanh', 'Lap top']
     return (
-        <div style={{ padding: '0 120px' }}>
-            <WrapperTypeProduct>
-                {arr.map(item => {
-                    return (
-                        <TypeProduct name={item} key={item} />
-                    )
-                })}
-            </WrapperTypeProduct>
-            Home Page
-        </div>
+        <>
+            <div style={{ padding: '0px 120px' }}>
+                <WrapperTypeProduct>
+                    {arr.map(item => {
+                        return (
+                            <TypeProduct name={item} key={item} />
+                        )
+                    })}
+                </WrapperTypeProduct>
+
+            </div>
+            <div id="container" style={{ backgroundColor: '#efefef', padding: '0px 120px' }}>
+                <SliderComponent arrImages={[shopee1, shopee2, shopee3, shopee4]} />
+            </div>
+        </>
     )
 }
 
