@@ -7,6 +7,8 @@ import shopee2 from "../../assets/images/shopee2.jpg";
 import shopee3 from "../../assets/images/shopee3.jpg";
 import shopee4 from "../../assets/images/shopee4.jpg";
 import CardComponent from "../../components/CardComponent/CardComponent";
+import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
+import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 
 const HomePage = () => {
   const arr = ["TV", "Tu lanh", "Lap top"];
@@ -37,7 +39,14 @@ const HomePage = () => {
           }}
         >
           <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
         </div>
+        <ButtonComponent textButton="Xem Thêm" />
       </div>
     </>
   );
