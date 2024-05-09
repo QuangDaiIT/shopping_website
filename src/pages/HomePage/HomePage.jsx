@@ -8,7 +8,8 @@ import shopee3 from "../../assets/images/shopee3.jpg";
 import shopee4 from "../../assets/images/shopee4.jpg";
 import CardComponent from "../../components/CardComponent/CardComponent";
 import NavBarComponent from "../../components/NavBarComponent/NavBarComponent";
-import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
+import { WrapperButtonMore } from "../../components/NavBarComponent/style";
+import { WrapperProducts } from "./style";
 
 const HomePage = () => {
   const arr = ["TV", "Tu lanh", "Lap top"];
@@ -30,23 +31,37 @@ const HomePage = () => {
         }}
       >
         <SliderComponent arrImages={[shopee1, shopee2, shopee3, shopee4]} />
+        <WrapperProducts>
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+        </WrapperProducts>
         <div
           style={{
-            marginTop: "20px",
+            width: "100%",
             display: "flex",
-            alignItems: "center",
-            gap: "20px",
+            justifyContent: "center",
+            marginTop: "10px",
           }}
         >
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
-          <CardComponent />
+          <WrapperButtonMore
+            // textButton="Xem Thêm"
+            type="outline"
+            // styleButton={{
+            //   border: "1px solid rgb(11,116,229)",
+            //   color: "rgb(11,226,229",
+            //   width: "240px",
+            //   height: "38px",
+            //   borderRadius: "4px",
+            // }}
+          >
+            <span>Xem Thêm</span>
+          </WrapperButtonMore>
         </div>
-        <ButtonComponent textButton="Xem Thêm" />
       </div>
     </>
   );

@@ -2,13 +2,16 @@ import React from "react";
 // import { Card } from "antd";
 // import Meta from "antd/es/card/Meta";
 import offical from "../../assets/images/offical.png";
-import { StyleNameProduct } from "./style";
 import { StarFilled } from "@ant-design/icons";
-import { WrapperReportText } from "./style";
-import { WrapperPriceText } from "./style";
-import { WrapperDiscountText } from "./style";
-import { WrapperCardStyle } from "./style";
-import { WrapperImageStyle } from "./style";
+import {
+  WrapperImageStyle,
+  StyleNameProduct,
+  WrapperStyleTextSell,
+  WrapperReportText,
+  WrapperPriceText,
+  WrapperDiscountText,
+  WrapperCardStyle,
+} from "./style";
 
 const CardComponent = () => {
   return (
@@ -46,7 +49,7 @@ const CardComponent = () => {
           <span> 4.96 </span>
           <StarFilled style={{ fontSize: "12px", color: "yellow" }} />
         </span>
-        <span>Đã bán 1000+</span>
+        <WrapperStyleTextSell>Đã bán 1000+</WrapperStyleTextSell>
       </WrapperReportText>
       <WrapperPriceText>
         1.000.000đ
