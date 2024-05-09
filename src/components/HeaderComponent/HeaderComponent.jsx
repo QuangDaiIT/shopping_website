@@ -14,30 +14,29 @@ import ButtonInputSearch from "../ButtonInputSearch/ButtonInputSearch";
 // import Search from "antd/es/transfer/search";
 const HeaderComponent = () => {
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        background: "rgb(26,148,255)",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <WrapperHeader gutter={"16"}>
-        <Col span={6}>
+        <Col span={5}>
           <WrapperTextHeader>QUANGDAISHOP</WrapperTextHeader>
         </Col>
-        <Col span={12}>
-          {/* <Search
-                        placeholder="input search text"
-                        allowClear
-                        enterButton="Search"
-                        size="large"
-
-                    // onSearch={onSearch}
-                    /> */}
+        <Col span={13}>
           <ButtonInputSearch
             size="large"
+            border={false}
             placeholder="input search text"
-            // variant="borderless"
             textButton="Tìm kiếm"
           />
         </Col>
         <Col
           span={6}
-          style={{ display: "flex", gap: "20px", alignItems: "center" }}
+          style={{ display: "flex", gap: "54px", alignItems: "center" }}
         >
           <WrapperHeaderAccount>
             <UserOutlined style={{ fontSize: "30px" }} />
