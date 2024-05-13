@@ -1,6 +1,7 @@
 const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const { generalAccessToken, generalRefreshToken } = require("./JwtService");
+const { use } = require("../routes/userRouter");
 const createUser = (newUser) => {
   return new Promise(async (resolve, reject) => {
     const { name, email, password, confirmPassword, phone } = newUser;
@@ -109,8 +110,76 @@ const updateUser = (id, data) => {
     }
   });
 };
+
+const deleteUser = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const checkUser = await User.findOne({
+        _id: id,
+      });
+      console.log("checkUser : ", checkUser);
+      if (checkUser === null) {
+        resolve({
+          status: "OK",
+          message: "The user is not defined",
+        });
+      }
+      const deleteUser = await User.findByIdAndDelete(id);
+      resolve({
+        status: "OK",
+        message: "Delete user success",
+      });
+      // }
+    } catch (e) {
+      return reject(e);
+    }
+  });
+};
+
+const getAllUser = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const allUser = await User.find();
+      resolve({
+        status: "OK",
+        message: "success",
+        data: allUser,
+      });
+      // }
+    } catch (e) {
+      return reject(e);
+    }
+  });
+};
+
+const getDetailsUser = (id) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const user = await User.findOne({
+        _id: id,
+      });
+      if (user === null) {
+        resolve({
+          status: "OK",
+          message: "The user is not defined",
+        });
+      }
+      resolve({
+        status: "OK",
+        message: "success",
+        data: user,
+      });
+      // }
+    } catch (e) {
+      return reject(e);
+    }
+  });
+};
 module.exports = {
   createUser,
   loginUser,
   updateUser,
+  deleteUser,
+  getAllUser,
+  getDetailsUser,
 };
