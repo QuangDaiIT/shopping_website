@@ -1,4 +1,6 @@
 const UserService = require("../services/UserService");
+const JwtService = require("../services/JwtService");
+
 const createUser = async (req, res) => {
   try {
     console.log(req.body);
@@ -37,7 +39,7 @@ const loginUser = async (req, res) => {
     const { name, email, password, confirmPassword, phone } = req.body;
     const reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const isCheckEmail = reg.test(email);
-    if (!name || !email || !password || !confirmPassword || !phone) {
+    if (!email || !password) {
       return res.status(200).json({
         status: "ERR",
         message: "The input is required",
@@ -46,11 +48,6 @@ const loginUser = async (req, res) => {
       return res.status(200).json({
         status: "ERR",
         message: "The input is email",
-      });
-    } else if (password !== confirmPassword) {
-      return res.status(200).json({
-        status: "ERR",
-        message: "The password is equal confirmPassword",
       });
     }
     console.log("isCheckEmail : ", isCheckEmail);
@@ -133,6 +130,26 @@ const getDetailsUser = async (req, res) => {
   }
 };
 
+const refreshToken = async (req, res) => {
+  try {
+    const token = req.headers.token.split(" ")[1];
+    // console.log("userId : ", userId);
+    if (!token) {
+      return res.status(200).json({
+        status: "ERR",
+        message: "The token is required",
+      });
+    }
+    console.log("token : ", token);
+    const response = await JwtService.refreshTokenJwtService(token);
+    return res.status(200).json(response);
+  } catch (e) {
+    return res.status(404).json({
+      message: e,
+    });
+  }
+};
+
 module.exports = {
   createUser,
   loginUser,
@@ -140,4 +157,5 @@ module.exports = {
   deleteUser,
   getAllUser,
   getDetailsUser,
+  refreshToken,
 };
